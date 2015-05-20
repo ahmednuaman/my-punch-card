@@ -5,7 +5,7 @@ var argv = require('yargs').argv,
       debug: true,
       protocol: 'https'
     }),
-    page = 1,
+    page = 2,
     username = argv._[0] || 'ahmednuaman',
     token = argv._[1],
     punchcards,
@@ -65,8 +65,20 @@ function findPunchCards () {
   if (repos.length) {
     fetchPunchCards(repos.pop());
   } else {
-    console.log(punchcards);
+    calculateHours();
   }
+}
+
+function calculateHours () {
+  var hours = [];
+
+  punchcards.forEach(function (card) {
+    hours.push(+card[2]);
+  });
+
+  console.log(hours.reduce(function (a, b) {
+    return a + b;
+  }));
 }
 
 fetchRepos(page);
