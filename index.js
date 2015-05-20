@@ -5,10 +5,31 @@ var argv = require('yargs').argv,
       debug: true,
       protocol: "https"
     }),
-    username = argv._[0] || 'ahmednuaman';
+    page = 1,
+    username = argv._[0] || 'ahmednuaman',
+    repos;
 
-github.repos.getFromUser({
-  user: username
-}, function (err, res) {
-  console.log(res);
-});
+function fetchRepos (page) {
+  github.repos.getFromUser({
+    user: username,
+    per_page: 100,
+    page: page
+  }, function (err, res) {
+    if (!err) {
+      handleRepos(res);
+    }
+  });
+}
+
+function handleRepos (res) {
+  repos = repos || [];
+
+  if (res.length) {
+    repos = repos.concat(res);
+    fetchRepos(++page);
+  } else {
+    console.log(repos.length);
+  }
+}
+
+fetchRepos(page);
