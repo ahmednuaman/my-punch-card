@@ -1,0 +1,24 @@
+{
+  "name": "my-punch-card",
+  "version": "0.0.0",
+  "description": "Punch card data of all my commits",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmednuaman/my-punch-card.git"
+  },
+  "keywords": [
+    "github",
+    "punch",
+    "card"
+  ],
+  "author": "Ahmed Nuaman (ahmed@ahmednuaman.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ahmednuaman/my-punch-card/issues"
+  },
+  "homepage": "https://github.com/ahmednuaman/my-punch-card#readme"
+}
