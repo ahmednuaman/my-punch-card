@@ -1,6 +1,6 @@
 {
   "name": "my-punch-card",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Punch card data of all my commits",
   "main": "index.js",
   "scripts": {
