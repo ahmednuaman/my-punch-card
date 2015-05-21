@@ -1,13 +1,14 @@
 var argv = require('yargs').argv,
-    GithubApi = require('github'),
-    github = new GithubApi({
+    Github = require('github'),
+    github = new Github({
       version: '3.0.0',
-      debug: true,
       protocol: 'https'
     }),
     page = 1,
-    username = argv._[0] || 'ahmednuaman',
+    Spinner = require('its-thinking'),
+    spinner = new Spinner(),
     token = argv._[1],
+    username = argv._[0] || 'ahmednuaman',
     punchcards,
     repos;
 
@@ -78,7 +79,11 @@ function calculateHours () {
     }
   });
 
-  console.log(hours);
+  spinner.stop();
+  spinner.reset();
+  console.log("\n" + 'Total commit hours: ' + hours);
 }
 
+spinner.set(8);
+spinner.start('Loading Github data ');
 fetchRepos(page);

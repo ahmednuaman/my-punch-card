@@ -23,6 +23,7 @@
   "homepage": "https://github.com/ahmednuaman/my-punch-card#readme",
   "dependencies": {
     "github": "^0.2.4",
+    "its-thinking": "0.0.4",
     "yargs": "^3.9.1"
   }
 }
